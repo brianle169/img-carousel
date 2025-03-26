@@ -1,1 +1,1 @@
-# webpack-project-template
+# image-carousel

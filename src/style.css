@@ -1,1 +1,157 @@
 /* CSS rules go here */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  /* border: 1px solid red; */
+  margin: 0;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  height: 100%;
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  display: grid;
+  grid-template-areas: "header" "main";
+  grid-template-rows: min-content 1fr;
+}
+
+header {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  grid-area: header;
+}
+
+.main-cont {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.frame {
+  min-height: 500px;
+  width: 700px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .carousel {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    overflow: hidden;
+  }
+  img {
+    min-height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+
+  img.visible {
+    opacity: 1;
+    order: -1;
+  }
+
+  .btn {
+    position: absolute;
+    top: 50%;
+    margin: 20px;
+  }
+
+  .btn.next {
+    right: 0;
+  }
+
+  .nav-cont {
+    align-self: center;
+    display: flex;
+    margin-top: 10px;
+    height: 20px;
+    width: 15%;
+    justify-content: space-around;
+  }
+
+  .nav {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: none;
+  }
+
+  .nav.active {
+    background-color: grey;
+  }
+}
